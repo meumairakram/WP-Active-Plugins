@@ -2,7 +2,7 @@
 /****
 * Plugin Name:  WP Active Plugins | Debugging Made Easy! 
 * Plugin URI:   www.codeivo.com/umair-akram
-* Description:  A Must Have Debugging Tool for Wordpress developers to grab a list of all activated plugins before they are going to turn them off for a debugging sessions. 
+* Description:  A Must Have Debugging Tool for Wordpress developers and Site Ownwers to grab a list of all activated plugins before they are going to turn them off for a debugging sessions. 
 * Version:      1.0
 * Author:       Umair Akram 
 * Author URI:   #
