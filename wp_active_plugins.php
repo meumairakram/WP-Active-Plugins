@@ -1,13 +1,47 @@
 <?php
 /****
 * Plugin Name:  WP Active Plugins | Debugging Made Easy! 
-* Plugin URI:   www.codeivo.com/umair-akram
+* Plugin URI:   www.codeivo.com
 * Description:  A Must Have Debugging Tool for Wordpress developers and Site Ownwers to grab a list of all activated plugins before they are going to turn them off for a debugging sessions. 
 * Version:      1.0
 * Author:       Umair Akram 
-* Author URI:   #
+* Author URI:   www.codeivo.com/umair-akram
 * License:      GPL 2
 ****/
+
+
+
+register_activation_hook(__FILE__, 'umpl_activation_code');
+
+
+function umpl_activation_code() {
+    
+    set_transient('umpl_plugin_activated',true,0);
+
+}
+
+
+function umpl_active_message() {
+    
+    if(get_transient('umpl_plugin_activated')) {
+    ?>
+    <div class="notice notice-success is-dismissible">
+        <p><strong><?php _e('WP Active Plugins'); ?></strong> activated successfully.</p>
+        
+        <p><?php _e( 'To get a list of all your activated plugins, goto ');?> <strong><?php _e('Tools > Active Plugins.'); ?></strong></p>
+    </div>
+
+    <?php
+        delete_transient('umpl_plugin_activated');
+    }
+}
+
+add_action('admin_notices','umpl_active_message');
+
+
+
+
+
 
 function umpl_my_admin_menu() { 
 
